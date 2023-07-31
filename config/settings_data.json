@@ -173,9 +173,9 @@
         "settings": {
           "promo_text": "",
           "social_icons_header": true,
-          "phone_number": "999999999",
+          "phone_number": "",
           "top_bar_menu": "",
-          "show_cart": true,
+          "show_cart": false,
           "cart_icon": "bag",
           "show_locale_selector": true,
           "show_currency_selector": true,
