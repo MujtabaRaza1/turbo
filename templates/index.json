@@ -4,6 +4,8 @@
       "type": "image-with-text-overlay",
       "settings": {
         "wide_display": true,
+        "image": "shopify:\/\/shop_images\/seaweed-washed-up-on-beach.jpg",
+        "image_2": "shopify:\/\/shop_images\/linkedinbanner.png",
         "pretext": "<p>Introducing the<\/p>",
         "title": "Turbo Shopify Theme",
         "subtitle": "<p>From Out of the Sandbox<\/p>",
