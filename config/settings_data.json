@@ -170,6 +170,9 @@
     "sections": {
       "header": {
         "type": "header",
+        "custom_css": [
+          "li{margin-left: 30px;}"
+        ],
         "settings": {
           "promo_text": "",
           "social_icons_header": true,
@@ -185,7 +188,7 @@
           "vertical_menu": false,
           "dropdown_click": false,
           "search_enabled": true,
-          "fixed_header": true,
+          "fixed_header": false,
           "logo_position": "center",
           "logo_alignment": "center",
           "menu_position": "inline",
