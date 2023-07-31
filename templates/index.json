@@ -97,7 +97,7 @@
       "settings": {
         "title": "Featured collection",
         "collection_description": true,
-        "collection": "featured-collection",
+        "collection": "featured-collection-3",
         "collection_style": "slider",
         "products_per": 4,
         "products_limit": 24,
@@ -508,7 +508,7 @@
         "display_first_name": false,
         "display_last_name": false,
         "newsletter_title": "Subscribe",
-        "newsletter_text": "<p>Sign up to get the latest on sales, new releases and more &hellip;<\/p>",
+        "newsletter_text": "<p>Sign up to get the latest on sales, new releases and more …<\/p>",
         "newsletter_section_text_align": "center",
         "css_class": "",
         "custom_css": ""

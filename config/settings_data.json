@@ -173,7 +173,7 @@
         "settings": {
           "promo_text": "",
           "social_icons_header": true,
-          "phone_number": "",
+          "phone_number": "999999999",
           "top_bar_menu": "",
           "show_cart": true,
           "cart_icon": "bag",
