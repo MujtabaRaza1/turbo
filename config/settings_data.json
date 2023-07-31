@@ -175,7 +175,7 @@
           "social_icons_header": true,
           "phone_number": "",
           "top_bar_menu": "",
-          "show_cart": false,
+          "show_cart": true,
           "cart_icon": "bag",
           "show_locale_selector": true,
           "show_currency_selector": true,
