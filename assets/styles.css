@@ -1267,6 +1267,7 @@ Description: Shopify Theme (https://www.shopify.com/&ref=out-of-the-sandbox)
 }
 .has-no-side-gutter .one-whole {
   width: 100%;
+  display: flex;
 }
 .has-no-side-gutter .one-half {
   width: 50%;
@@ -3283,7 +3284,7 @@ img[data-sizes="100vw"] {
   overflow: hidden;
   margin-left: auto;
   margin-right: auto;
-  max-width: 50%;
+  width: 100%;
 }
 
 .image-element__wrap img {
@@ -3945,6 +3946,7 @@ body.is-active #header {
 .mobile_nav div span {
   display: block !important;
   position: absolute !important;
+  background: black!important;
   height: 1px !important;
   width: 100%;
   background: #f4f4f4;
@@ -3990,7 +3992,7 @@ body.is-active #header {
 }
 
 #mobile_menu {
-  margin: 10px 20px;
+  /* margin: 10px 20px; */
 }
 #mobile_menu .sublink ul {
   display: none;
@@ -4383,9 +4385,15 @@ p.cart-message a {
 }
 
 .search-container {
-  width: 100%;
-  max-width: 200px;
+  width: 33.33%;
+  min-width: 33.33%;
   padding-left: 20px;
+  color: black;
+  display: flex;
+  justify-content: flex-end;
+}
+.search-container .cart-container{
+  margin-top: .5rem;
 }
 .search-container .search-link {
   display: none;
@@ -14656,8 +14664,8 @@ form.search__form,
   z-index: 1000;
   color: #000;
   font-size: 20px;
-  top: 9px;
-  right: 7px;
+  top: 12px;
+  right: 85px;
   cursor: pointer;
 }
 
@@ -17290,7 +17298,7 @@ footer .social_icons a:hover {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  column-gap: 13px;
+  /* column-gap: 13px; */
   padding: 0;
   margin: 0;
   list-style: none;
@@ -18101,4 +18109,5 @@ footer .social_icons a:hover {
 
 .main-nav__wrapper li a{
   color: black;
+  margin-left: 20px;
 }
