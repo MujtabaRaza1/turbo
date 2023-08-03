@@ -32,7 +32,7 @@
         "title": "|",
         "collection_description": true,
         "collection": "all",
-        "products_per": 5,
+        "products_per": 4,
         "products_limit": 50,
         "css_class": "",
         "custom_css": ""
