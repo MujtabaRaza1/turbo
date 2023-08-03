@@ -26,11 +26,23 @@
         "custom_css": ""
       }
     },
+    "0133126b-fb3c-473b-9ffe-27c0ccd7da0b": {
+      "type": "custom-section",
+      "settings": {
+        "title": "|",
+        "collection_description": true,
+        "collection": "all",
+        "products_per": 5,
+        "products_limit": 50,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
     "featured-text-1": {
       "type": "featured-text",
       "settings": {
         "title": "Talk about your brand",
-        "content": "<p>Use this text to share information about your brand with your customers.<\/p>\r\n<p>Describe a product, share announcements, or welcome customers to your store.<\/p>",
+        "content": "<p>Use this text to share information about your brand with your customers.<\/p><p>Describe a product, share announcements, or welcome customers to your store.<\/p>",
         "button_label": "",
         "button_link": "",
         "text_size": "featured_text",
@@ -538,6 +550,7 @@
   },
   "order": [
     "image-with-text-overlay-1",
+    "0133126b-fb3c-473b-9ffe-27c0ccd7da0b",
     "featured-text-1",
     "featured-promotions-1",
     "featured-collection-1",
