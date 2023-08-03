@@ -50,6 +50,7 @@
         column
         banner
       "
+      style="height: {{ section.settings.double_picture_height }}"
     >
       {% if section.settings.mobile_image %}
         <div class="is-hidden-mobile-only">
@@ -63,6 +64,7 @@
           stretch_width: true,
           additional_classes: mobile_crop
         %}
+        
         {%
           render 'image-element',
           image: section.settings.image_2,
@@ -159,8 +161,38 @@
   .one-whole img{
     opacity: 0.7;
   }
+  img[data-sizes=auto].lazyloaded{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  @media only screen and (max-width: 800px){
+  
+  }
 
 </style>
+
+
+<script>
+  // Function to handle the media query change
+  function handleMediaQuery(mediaQuery) {
+    const secondElement = document.querySelectorAll('.image-element__wrap')[1];
+    if (mediaQuery.matches) {
+      // If the screen size is under 800px, set display: none
+      secondElement.style.display = 'none';
+    } else {
+      // If the screen size is 800px or larger, set display: block (or any other value you want)
+      secondElement.style.display = 'block'; // You can change this to 'flex', 'grid', etc. as needed
+    }
+  }
+
+  // Add a media query listener to handle changes
+  const mediaQuery = window.matchMedia('(max-width: 800px)');
+  handleMediaQuery(mediaQuery); // Call the function initially to apply the appropriate style
+  mediaQuery.addListener(handleMediaQuery); // Add listener for changes
+</script>
+
 
 {% schema %}
 {
@@ -184,6 +216,15 @@
       "id": "image_2",
       "label": "Image 2",
       "info": "1800 x 1000px recommended"
+    },
+    {
+      "type": "range",
+      "id": "double_picture_height",
+      "label": "Section Height",
+      "min": 33,
+      "max": 50,
+      "default": 33
+
     },
     {
       "type": "richtext",

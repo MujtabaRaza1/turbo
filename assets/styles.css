@@ -15960,9 +15960,16 @@ footer .social_icons a:hover {
   .caption--below-true .caption {
     margin: 20px auto !important; /* Force caption margin */
     font-size: 3vw;
-    position: static;
+    position: absolute;
+    top: 4rem;
     transform: none;
     width: 100%;
+  }
+  img[data-sizes=auto].lazyloaded{
+    opacity: 0.8;
+  }
+  .top-bar .top-bar--right{
+    margin-right: 10px;
   }
 }
 @media only screen and (max-width: 480px) {
