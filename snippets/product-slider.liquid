@@ -146,3 +146,26 @@
     {% endif %}
   {% endfor %}
 </div>
+
+<style>
+  .flickity-enabled{
+    overflow: visible!important;
+    width: 90%;
+  }
+  .slider-gallery .flickity-prev-next-button{
+    opacity: 1!important;
+    background: transparent;
+  }
+  .slider-gallery .flickity-prev-next-button:hover{
+    opacity: 1!important;
+  }
+  .flickity-prev-next-button.previous{
+    left: -40px;
+  }
+  .flickity-prev-next-button.next{
+    right: -40px;
+  }
+  .product-list .thumbnail .thumbnail-overlay, .slider-gallery .thumbnail .thumbnail-overlay, .list-collections .thumbnail .thumbnail-overlay{
+    display: none;
+  }
+</style>
