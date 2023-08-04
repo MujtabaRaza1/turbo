@@ -29,10 +29,10 @@
     "0133126b-fb3c-473b-9ffe-27c0ccd7da0b": {
       "type": "custom-section",
       "settings": {
-        "title": "",
+        "title": "New Custom Collection",
         "collection_description": true,
         "collection": "all",
-        "products_per": 4,
+        "products_per": 5,
         "products_limit": 50,
         "css_class": "",
         "custom_css": ""
