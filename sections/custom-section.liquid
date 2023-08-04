@@ -10,7 +10,7 @@
 {%- assign collection = collections[section.settings.collection] -%}
 {%- assign product_limit = section.settings.product_limit -%}
 
-    <div class="products-carousel js-flickity wide-visible-only" data-flickity =  '{"freeScroll": true, "groupCells": 4, "wrapAround": true}'>
+    <div class="products-carousel js-flickity wide-visible-only" data-flickity =  '{"freeScroll": true, "groupCells": {{ product_per }}, "wrapAround": true}'>
         {% for product in collection.products limit: product_limit %}
             <div class="carousel-cell">
                 <a class="Xddriki" href="{{ product.url | within: collection }}">
