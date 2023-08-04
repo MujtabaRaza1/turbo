@@ -10,7 +10,7 @@
 {%- assign collection = collections[section.settings.collection] -%}
 {%- assign product_limit = section.settings.product_limit -%}
 
-    <div class="products-carousel js-flickity wide-visible-only" data-flickity =  '{"freeScroll": true, "groupCells": {{ section.settings.products_per }}, "wrapAround": true}'>
+    <div class="products-carousel js-flickity wide-visible-only" data-flickity =  '{"freeScroll": true, "groupCells": true, "groupCells": 2, "wrapAround": true}'>
         {% for product in collection.products limit: product_limit %}
             <div class="carousel-cell">
                 <a class="Xddriki" href="{{ product.url | within: collection }}">
@@ -55,15 +55,18 @@
 
 <style>
 .products-carousel .img-explore{
-    max-height: 15.7vw!important;
+    {% if section.settings.products_per == 2 or section.settings.products_per == 3 %}width: 100%; padding: 15px!important;{% endif %}    
     margin-left: 10px!important;
     padding: 5px;
 }
 .products-carousel .flickity-slider{
     left: -2%!important;
+    {% if section.settings.products_per == 3 %} left: -18%!important;{% endif %}
 }
 .products-carousel .flickity-viewport{
     width: 95%;
+    {% if section.settings.products_per == 2 %}height: 40vw!important;{% endif %}
+    {% if section.settings.products_per == 3 %}height: 26vw!important;{% endif %}
     margin: 0 auto;
 }
 .products-carousel .flickity-prev-next-button{
@@ -80,6 +83,8 @@
 .carousel-cell{
     margin-left: 5px;
     margin-right: 5px;
+    {% if section.settings.products_per == 2 %} width:50%!important;{% endif %} {% if section.settings.products_per == 3 %} width:33.33%!important;{% endif %}{% if section.settings.products_per == 4 %} width:25%!important;{% endif %}
+     {% if section.settings.products_per == 2 or section.settings.products_per == 3 %} height:95%!important;{% endif %}
 }
 .wide-visible-only{
     display:block;
@@ -110,6 +115,7 @@
     .products-carousel .flickity-viewport{
         height: 100vw!important;
         width: 100%;
+        {% if section.settings.products_per == 3 %}width: 92%;{% endif %}
     }
     .products-carousel .flickity-slider{
         left: -26.2%!important;
@@ -127,6 +133,7 @@
         max-height: 24.7vw!important;
         margin-left: 0!important;
         width: 40vw;
+        {% if section.settings.products_per == 3 %}width: 32vw;{% endif %}
         padding: 0!important;
         margin-bottom: 5%;
     }
