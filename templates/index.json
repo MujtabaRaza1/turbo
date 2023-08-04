@@ -29,7 +29,7 @@
     "0133126b-fb3c-473b-9ffe-27c0ccd7da0b": {
       "type": "custom-section",
       "settings": {
-        "title": "|",
+        "title": "",
         "collection_description": true,
         "collection": "all",
         "products_per": 4,
