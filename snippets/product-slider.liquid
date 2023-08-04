@@ -45,14 +45,15 @@
     {%- assign collection_handles = product.collections | map: 'handle' -%}
 
     {% if product.id != skip_product.id %}
-      <div class="gallery-cell
+      <djs-product-slideriv class="gallery-cell
                   thumbnail
                   visible-{{ visible_products }}
                   quick-shop-style--{{ settings.quick_shop_style }}
                   product__details
                   thumbnail-hover-enabled--{{ settings.thumbnail_hover_enabled }}
-                  product-{{ product.id }}">
-        <div class="product-wrap {% if settings.collection_secondary_image != blank and product.media[1] != blank %}has-secondary-media-swap{% endif %}">
+                  product-{{ product.id }}"
+                >
+        <div class="product-wrap {% if settings.collection_secondary_image != blank and product.media[1] != blank %}has-secondary-media-swap{% endif %}" >
           <div class="relative product_image">
             <a href="{{ product.url | within: collection }}">
               <div class="image__container">
@@ -64,6 +65,7 @@
                     object_fit: settings.align_height,
                     max_height: settings.collection_height,
                   %}
+                  
                 {% else %}
                   {%
                     render 'image-element',
@@ -72,6 +74,19 @@
                     object_fit: settings.align_height,
                     max_height: settings.collection_height,
                   %}
+                  {% if section.id == 'template--20130887631132__0133126b-fb3c-473b-9ffe-27c0ccd7da0b' %}
+                    <div class="custom_product-info">
+                        <div class="custom_product-title">
+                          {{ product.title }}
+                        </div>
+                        <div class="custom_product-price">
+                          {{ product.price | money_with_currency}}
+                        </div>
+                        {{ product.type }}
+                    </div>
+                        
+
+                  {% endif %}
                 {% endif %}
                 {% if settings.collection_secondary_image != blank and product.media[1] != blank %}
                   {% if product.media[1].media_type == 'external_video' %}
@@ -142,30 +157,7 @@
             </div>
           {% endunless %}
         {% endif %}
-      </div>
+      </djs-product-slideriv>
     {% endif %}
   {% endfor %}
 </div>
-
-<style>
-  .flickity-enabled{
-    overflow: visible!important;
-    width: 90%;
-  }
-  .slider-gallery .flickity-prev-next-button{
-    opacity: 1!important;
-    background: transparent;
-  }
-  .slider-gallery .flickity-prev-next-button:hover{
-    opacity: 1!important;
-  }
-  .flickity-prev-next-button.previous{
-    left: -40px;
-  }
-  .flickity-prev-next-button.next{
-    right: -40px;
-  }
-  .product-list .thumbnail .thumbnail-overlay, .slider-gallery .thumbnail .thumbnail-overlay, .list-collections .thumbnail .thumbnail-overlay{
-    display: none;
-  }
-</style>

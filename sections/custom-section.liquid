@@ -1,96 +1,161 @@
-<script
-    type="application/json"
-    data-section-type="custom-section"
-    data-section-id="{{ section.id }}"
-  >
-  </script>
-  
-  {% assign collection = collections[section.settings.collection] %}
-  
-  {% comment %} Section specific CSS {% endcomment %}
-  {% style %}
-    {%
-      render 'css-loop',
-      css: section.settings.custom_css,
-      id: section.id
-    %}
-  {% endstyle %}
-  
-  {% if collection == blank %}
-    {%- assign section_onboarding = true -%}
-    {% comment %} Assign product length to be selected limit for onboarding {% endcomment %}
-    {%- assign products_length = section.settings.products_limit | plus: 0 -%}
-  {% else %}
-    {%- assign section_onboarding = false -%}
-  {% endif %}
-  
-  <div class="{{ section.settings.css_class }}">
-    <section class="section">
-      <div class="container">
-        <div class="one-whole column center homepage_content">
-          {% if section.settings.title != blank %}
-            <a href="{{ collection.url }}">
-              <h2 class="title">{{ section.settings.title | escape }}</h2>
-            </a>
-            <div class="feature-divider"></div>
-          {% endif %}
-  
-          {% if section.settings.collection_description and collection.description != blank %}
-            <div class="featured-collection__description rte">
-              {{ collection.description }}
+
+
+<div class="featured-collection-slider page-width">
+{% if section.settings.title != blank %}
+    <div class="section-header text-center">
+        <h2>{{ section.settings.title | escape }}</h2>
+    </div>
+{% endif %}
+
+{%- assign collection = collections[section.settings.collection] -%}
+{%- assign product_limit = section.settings.product_limit -%}
+
+    <div class="products-carousel js-flickity wide-visible-only" data-flickity =  '{"freeScroll": true, "groupCells": 4, "wrapAround": true}'>
+        {% for product in collection.products limit: product_limit %}
+            <div class="carousel-cell">
+                <a class="Xddriki" href="{{ product.url | within: collection }}">
+                    <img class="img-explore" src="{{ product.featured_image | img_url: 'master'}}">
+                    <h4 class="wide_h4s">{{ product.title }}</h4>
+                    <p class="wide_ps">{{ product.price | money }}</p>
+                </a>
             </div>
-          {% endif %}
-        </div>
-      </div>
-    </section>
-      <div class="js-product-slider homepage-product-slider full-width--true {% if section.settings.products_per  == 2 or section.settings.products_per  == 4 or section.settings.products_per  == 6 %}even-num-slides{% endif %} featured-collection__products">
-        {% if section_onboarding == false %}
-          {% if collection.products.size > 0 %}
-            {%
-              render 'product-slider',
-              limit: section.settings.products_limit,
-              products: collection.products,
-              collection: collection,
-              per_slide: section.settings.products_per,
-              featured_collection: collection,
-            %}
-          {% endif %}
-        {% else %}
-          <div class="slider-gallery products-slider products-length-{{ products_length }}"
-               data-products-per-slide="{{ section.settings.products_per }}"
-               data-products-limit="{{ section.settings.products_limit }}"
-               data-products-available="{{ products_length }}">
-            {% for i in (1..section.settings.products_limit) %}
-              {%- assign per_slide_num = section.settings.products_per -%}
-  
-              <div class="gallery-cell thumbnail {% if products_length > per_slide_num %}visible-{{ section.settings.products_per }}{% else %}visible-{{ products_length }}{% endif %}">
-                <div class="product-wrap">
-                  <div class="relative product_image">
-                    <a href="#">
-                      <object class="placeholder-image">
-                        {% capture num %}{% cycle "1", "2", "3", "4", "5", "6" %}{% endcapture %}
-                        {{ 'product-' | append: num | placeholder_svg_tag: 'placeholder-svg placeholder-svg--product' }}
-                      </object>
+        {% endfor %}   
+    </div>
+    <div class="products-carousel js-flickity mobile-visible-only" data-flickity =  '{"freeScroll": true, "wrapAround": true}'>
+        {% assign products_per_row = 1 %}
+        {% assign rows = 2 %}
+        {% assign products_in_set = products_per_row | times: rows %}
+        
+        <div class="carousel-cell">
+            <div class="product-row">
+            {% for product in collection.products %}
+                <div class="product-cell">
+                    <a class="Xddriki" href="{{ product.url | within: collection }}">
+                        <img class="img-explore" src="{{ product.featured_image | img_url: 'master'}}">
+                        <h4 class="mobile_h4s">{{ product.title }}</h4>
+                        <p class="mobile_ps">{{ product.price | money }}</p>
                     </a>
-                  </div>
                 </div>
-              </div>
+        
+                {% assign product_count = forloop.index | modulo: products_in_set %}
+                {% if product_count == 0 %}
+                    </div></div>
+                    {% unless forloop.last %}
+                        <div class="carousel-cell">
+                            <div class="product-row">
+                    {% endunless %}
+                {% elsif product_count == products_per_row %}
+                    </div><div class="product-row">
+                {% endif %}
             {% endfor %}
-          </div>
-        {% endif %}
-      </div>
-  </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.products-carousel .img-explore{
+    max-height: 15.7vw!important;
+    margin-left: 10px!important;
+    padding: 5px;
+}
+.products-carousel .flickity-slider{
+    left: -2%!important;
+}
+.products-carousel .flickity-viewport{
+    width: 95%;
+    margin: 0 auto;
+}
+.products-carousel .flickity-prev-next-button{
+    background: transparent!important;
+    opacity: 1!important;
+}
+
+.Xddriki h4,
+.Xddriki p{
+    margin-left: 15px;
+    display: flex;
+    justify-content: center;
+}
+.carousel-cell{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.wide-visible-only{
+    display:block;
+}
+.mobile-visible-only{
+    display: none;
+}
+
+.wide_h4s{
+    font-size: 13px!important;
+    font-weight: 600!important;
+    letter-spacing: 1px!important;
+    padding: 7px 0!important;
+}
+.wide_ps{
+    font-size: 14px;
+    color: black;
+}
+
+
+@media (max-width: 800px) {
+    .wide-visible-only{
+        display:none;
+    }
+    .mobile-visible-only{
+        display: block;
+    }
+    .products-carousel .flickity-viewport{
+        height: 100vw!important;
+        width: 100%;
+    }
+    .products-carousel .flickity-slider{
+        left: -26.2%!important;
+    }
+    .carousel-cell{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 50%;
+        height: inherit;
+    }
+    .products-carousel .img-explore {
+        max-height: 24.7vw!important;
+        margin-left: 0!important;
+        width: 40vw;
+        padding: 0!important;
+        margin-bottom: 5%;
+    }
+    .mobile_h4s{
+        font-size: 13px!important;
+        letter-spacing: 1px!important;
+        padding: 0px 0!important;
+        text-transform: uppercase!important;
+        font-weight: 300!important;
+    }
+    .mobile_ps{
+        color: black!important;
+        font-weight: 300!important;
+        font-size: 13px!important;
+    }
+}
+  
+</style>
   
   {% schema %}
   {
     "name": "Custom Section",
-    "class": "shopify-section--featured-collection",
+    "class": "shopify-section--custom-section",
     "settings": [
       {
         "type": "text",
         "id": "title",
         "label": "Heading",
-        "default": "Featured collection"
+        "default": "Custom Section"
       },
       {
         "type": "checkbox",
