@@ -1,12 +1,26 @@
 {% schema %}
   {
-    "name": "Section name",
-    "settings": []
+    "name": "Custom Meta Section",
+    "class": "shopify-section--custom-section",
+    "settings": [],
+    "presets": [
+      {
+        "name": "Custom Meta Section",
+        "category": "Collection"
+      }
+    ],
+    "templates": [
+      "404",
+      "article",
+      "blog",
+      "cart",
+      "collection",
+      "list-collections",
+      "index",
+      "page",
+      "product",
+      "search"
+    ]
   }
-{% endschema %}
-
-{% stylesheet %}
-{% endstylesheet %}
-
-{% javascript %}
-{% endjavascript %}
+  
+  {% endschema %}
