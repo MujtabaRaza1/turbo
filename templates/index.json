@@ -26,6 +26,11 @@
         "custom_css": ""
       }
     },
+    "792d3fbc-c72f-4b4f-855d-3fa744dd37b1": {
+      "type": "custom-meta-section",
+      "settings": {
+      }
+    },
     "0133126b-fb3c-473b-9ffe-27c0ccd7da0b": {
       "type": "custom-section",
       "settings": {
@@ -550,6 +555,7 @@
   },
   "order": [
     "image-with-text-overlay-1",
+    "792d3fbc-c72f-4b4f-855d-3fa744dd37b1",
     "0133126b-fb3c-473b-9ffe-27c0ccd7da0b",
     "featured-text-1",
     "featured-promotions-1",
