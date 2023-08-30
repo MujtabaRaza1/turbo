@@ -1,8 +1,175 @@
+{% if product.metafields.custom.randomproducts != blank %}
+
+  {% assign mobile_limit = section.settings.mobile_products_limit %}
+  {% assign web_limit = section.settings.web_products_limit %}
+  
+  <div class="products-carousel js-flickity wide-visible-only" data-flickity='{"freeScroll": true, "groupCells": true, "groupCells": 1, "wrapAround": true}'>
+  {% for product in product.metafields.custom.randomproducts.value limit: web_limit %}
+    
+          <div class="carousel-cell">
+              <a class="Xddriki" href="{{ product.url | within: collection }}">
+                  <img class="img-explore" style="height: 250px; width: 300px;" src="{{ product.featured_image | img_url: 'master'}}">
+                  <h4 class="wide_h4s">{{ product.title }}</h4>
+                  <p class="wide_ps">{{ product.price | money }}</p>
+                  <form action="/cart/add" method="post" class="product-form" id="add-to-cart-form">
+                    <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                    <button type="submit" class="btn" id="add-to-cart-btn">Add to Cart</button>
+                </form>
+              </a>
+          </div>
+  {% endfor %}
+</div>
+<div class="mobile-visible-only">
+  {% for product in product.metafields.custom.randomproducts.value limit: mobile_limit %}
+    
+          <div class="carousel-cell">
+              <a class="Xddriki" href="{{ product.url | within: collection }}">
+                  <img class="img-explore" style="height: 250px; width: 300px;" src="{{ product.featured_image | img_url: 'master'}}">
+                  <h4 class="wide_h4s">{{ product.title }}</h4>
+                  <p class="wide_ps">{{ product.price | money }}</p>
+                  <form action="/cart/add" method="post" class="product-form" id="add-to-cart-form">
+                    <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                    <button type="submit" class="btn" id="add-to-cart-btn">Add to Cart</button>
+                </form>
+              </a>
+          </div>
+  {% endfor %}
+</div>
+{% endif %}
+
+<script>
+  document.getElementById("add-to-cart-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    const formElement = document.getElementById("add-to-cart-form");
+    const formData = new FormData(formElement);
+
+    // Send the product to the cart using AJAX
+    fetch("/cart/add", {
+        method: "POST",
+        body: formData
+    }).then(response => response.json())
+    .then(data => {
+        // Handle the response data as needed
+        console.log("Product added to cart:", data);
+
+        // Fetch and display the updated cart contents
+        fetch("/cart", {
+            method: "GET"
+        }).then(response => response.json())
+        .then(cartData => {
+            // Handle the cart data and update the UI
+            console.log("Updated cart contents:", cartData);
+            // You can update the UI to reflect the cart changes here
+        })
+        .catch(error => {
+            console.error("Error fetching cart:", error);
+        });
+    })
+    .catch(error => {
+        console.error("Error adding product to cart:", error);
+    });
+});
+
+</script>
+<style>
+  .img-explore{
+  width: 100%;
+  }
+
+  .carousel-cell{
+    margin: 10px 20px;
+  }
+
+  .flickity-slider{
+    left: 10%
+  }
+  .products-carousel .flickity-prev-next-button{
+    background: transparent!important;
+    opacity: 1!important;
+}
+  .products-carousel .flickity-prev-next-button svg{
+    left: 4%;
+    width: 90%;
+    height: 100%;
+}
+  .products-carousel .flickity-prev-next-button .arrow{
+    fill: black;
+    opacity: 1;
+}
+
+.Xddriki h4,
+.Xddriki p{
+    margin-left: 15px;
+    display: flex;
+    justify-content: center;
+}
+.products-carousel .flickity-viewport{
+  width: 95%;
+  margin: 0 auto;
+}
+.btn{
+  padding: 4% 37%;
+  text-align: center;
+  background: #03a196;
+}
+
+.mobile-visible-only{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align: center;
+  place-items: center;
+  column-gap: 0;
+}
+@media (max-width: 630px){
+  .mobile-visible-only{
+    grid-template-columns: 1fr;
+  }
+}
+  @media (min-width: 801px){
+    .mobile-visible-only{
+      display: none;
+    }
+    .wide-visible-only{
+      display: flex;
+    }
+  }
+  @media (max-width: 800px){
+    #shopify-section-{{ section.id }} .wide-visible-only{
+      display: none;
+    }
+    #shopify-section-{{ section.id }} .mobile-visible-only{
+    display: grid;
+    }
+    #shopify-section-{{ section.id }} .mobile-visible-only .carousel-cell{
+      width: fit-content;
+    }
+  }
+  </style>
 {% schema %}
   {
     "name": "Custom Meta Section",
     "class": "shopify-section--custom-section",
-    "settings": [],
+    "settings": [
+      {
+        "type": "range",
+        "id": "web_products_limit",
+        "label": "Limit web products",
+        "min": 7,
+        "max": 50,
+        "step": 1,
+        "default": 10
+      },
+      {
+        "type": "range",
+        "id": "mobile_products_limit",
+        "label": "Limit mobile products",
+        "min": 2,
+        "max": 10,
+        "step": 1,
+        "default": 4
+      }
+    ],
     "presets": [
       {
         "name": "Custom Meta Section",
@@ -24,3 +191,16 @@
   }
   
   {% endschema %}
+
+
+
+
+
+
+
+
+
+
+
+
+  

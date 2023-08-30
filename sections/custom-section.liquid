@@ -10,11 +10,11 @@
 {%- assign collection = collections[section.settings.collection] -%}
 {%- assign product_limit = section.settings.product_limit -%}
 
-    <div class="products-carousel js-flickity wide-visible-only" data-flickity =  '{"freeScroll": true, "groupCells": true, "groupCells": 2, "wrapAround": true}'>
+    <div class="products-carousel js-flickity wide-visible-only" style="display: flex; flex-direction: row;" data-flickity =  '{"freeScroll": true, "groupCells": true, "groupCells": 2, "wrapAround": true}'>
         {% for product in collection.products limit: product_limit %}
             <div class="carousel-cell">
                 <a class="Xddriki" href="{{ product.url | within: collection }}">
-                    <img class="img-explore" src="{{ product.featured_image | img_url: 'master'}}">
+                    <img class="img-explore lazyload" style="width: 31.3vw;" src="{{ product.featured_image | img_url: 'master'}}">
                     <h4 class="wide_h4s">{{ product.title }}</h4>
                     <p class="wide_ps">{{ product.price | money }}</p>
                 </a>
@@ -55,9 +55,16 @@
 
 <style>
 .products-carousel .img-explore{
-    {% if section.settings.products_per == 2 or section.settings.products_per == 3 %}width: 100%; padding: 15px!important;{% endif %}    
+    width: 100%!important;
+    {% if section.settings.products_per == 2 or section.settings.products_per == 3 %} padding: 15px!important;{% endif %}    
     margin-left: 10px!important;
     padding: 5px;
+}
+.flickity-slider{
+    display: flex;
+}
+.flickity-viewport{
+    display: flex;
 }
 .products-carousel .flickity-slider{
     left: -2%!important;
@@ -66,7 +73,7 @@
 .products-carousel .flickity-viewport{
     width: 95%;
     {% if section.settings.products_per == 2 %}height: 40vw!important;{% endif %}
-    {% if section.settings.products_per == 3 %}height: 26vw!important;{% endif %}
+    {% if section.settings.products_per == 3 %}height: 30vw!important;{% endif %}
     margin: 0 auto;
 }
 .products-carousel .flickity-prev-next-button{
@@ -83,7 +90,7 @@
 .carousel-cell{
     margin-left: 5px;
     margin-right: 5px;
-    {% if section.settings.products_per == 2 %} width:50%!important;{% endif %} {% if section.settings.products_per == 3 %} width:33.33%!important;{% endif %}{% if section.settings.products_per == 4 %} width:25%!important;{% endif %}
+    {% if section.settings.products_per == 2 %} width:50%!important;{% endif %} {% if section.settings.products_per == 3 %} width:33.33%!important;{% endif %}{% if section.settings.products_per == 4 %} width:25%!important;{% endif %}{% if section.settings.products_per == 5 %} width:20%!important;{% endif %}{% if section.settings.products_per == 6 %} width:16.6%!important;{% endif %}{% if section.settings.products_per == 7 %} width:14.28%!important;{% endif %}
      {% if section.settings.products_per == 2 or section.settings.products_per == 3 %} height:95%!important;{% endif %}
 }
 .wide-visible-only{
@@ -107,10 +114,10 @@
 
 @media (max-width: 800px) {
     .wide-visible-only{
-        display:none;
+        display:none!important;
     }
     .mobile-visible-only{
-        display: block;
+        display: block!important;
     }
     .products-carousel .flickity-viewport{
         height: 100vw!important;
@@ -118,7 +125,7 @@
         {% if section.settings.products_per == 3 %}width: 92%;{% endif %}
     }
     .products-carousel .flickity-slider{
-        left: -26.2%!important;
+        left: -26%!important;
     }
     .carousel-cell{
         display: flex;
@@ -126,15 +133,18 @@
         justify-content: center;
         align-items: center;
         text-align: center;
-        width: 50%;
+        width: 50%!important;
         height: inherit;
     }
+    .product-row{
+        padding: 15px;
+    }
     .products-carousel .img-explore {
-        max-height: 24.7vw!important;
+        max-height: 100%;
         margin-left: 0!important;
-        width: 40vw;
+        width: 100%;
         {% if section.settings.products_per == 3 %}width: 32vw;{% endif %}
-        padding: 0!important;
+        {% comment %} padding: 0!important; {% endcomment %}
         margin-bottom: 5%;
     }
     .mobile_h4s{
@@ -150,6 +160,29 @@
         font-size: 13px!important;
     }
 }
+@media (min-width: 801px) and (max-width: 900px){
+    .products-carousel .flickity-viewport {
+        {% if section.settings.product_per < 3%}height: 45vw!important;{% endif %}
+        
+    }
+}
+@media (min-width: 902px) and (max-width: 1102px){
+    
+    .wide_h4s{
+    {% if section.settings.product_per > 4 %}font-size: 10px!important;{% endif %}
+    }
+}
+@media (min-width: 801px) and (max-width: 901px){
+    .wide_h4s{
+    {% if section.settings.product_per > 4 %}font-size: 8px!important;{% endif %}
+    }
+}
+@media(max-width: 500px){
+    .product-row{
+        padding: 5px;
+    }
+}
+
   
 </style>
   
