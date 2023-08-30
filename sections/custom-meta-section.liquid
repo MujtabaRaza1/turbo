@@ -27,7 +27,7 @@
           {% endfor %}
           </div>
   {% else %}
-          <div class="products-carousel js-flickity wide-visible-only" data-flickity='{"freeScroll": true, "groupCells": true, "groupCells": 1, "wrapAround": true}'>
+          <div class="products-carousel js-flickity wide-visible-only" data-flickity='{"freeScroll": true, "groupCells": true, "groupCells": 1,{% if web_limit > 4 %} "wrapAround": true}{% endif %}'>
           {% for product in product.metafields.custom.randomproducts.value limit: web_limit %}
             
                   <div class="carousel-cell">
