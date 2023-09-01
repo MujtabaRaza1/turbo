@@ -3920,6 +3920,8 @@ body.is-active #header {
 /*  Mobile nav  */
 #header .mobile_nav.dropdown_link {
   width: 25%;
+  left: 1%;
+  position: absolute;
 }
 #header .mobile_nav.dropdown_link span.menu_title {
   position: absolute;
@@ -3933,10 +3935,11 @@ body.is-active #header {
 }
 
 .mobile_nav div {
+  left: 10%;
   flex-shrink: 0;
   width: 30px;
   height: 40px;
-  position: relative;
+  position: absolute;
   float: left;
   margin: 0 8px 0 5px;
   transform: rotate(0deg);

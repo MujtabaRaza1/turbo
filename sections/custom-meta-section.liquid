@@ -89,7 +89,7 @@
     background: #03a196;
   }
   #shopify-section-{{ section.id }} .img-explore{
-    height: 100%!important;
+    {% if web_limit < 4 %}height: 100%!important;{% endif %}
     width: 100%!important;
     padding: 10px;
   }
