@@ -8,42 +8,22 @@
   {% assign mobile_limit = section.settings.mobile_products_limit %}
   {% assign web_limit = section.settings.web_products_limit %}
   
-  {% if web_limit == 4 %}
-              <div class="only-4-product" style="display: flex;">
-              {% for product in product.metafields.custom.randomproducts.value limit: web_limit %}
-              
-                <div class="carousel-cell">
-                    <a class="Xddriki" href="{{ product.url | within: collection }}">
-                        <img class="img-explore" style="height: 250px; width: 300px;" src="{{ product.featured_image | img_url: 'master'}}">
-                        <h4 class="wide_h4s">{{ product.title }}</h4>
-                        <p class="wide_ps">{{ product.price | money }}</p>
-                        <form action="/cart/add" method="post" class="product-form" id="add-to-cart-form">
-                          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-                          <button type="submit" class="btn" id="add-to-cart-btn">Add to Cart</button>
-                      </form>
-                    </a>
-                </div>
-
-          {% endfor %}
+  <div class="products-carousel js-flickity wide-visible-only" data-flickity='{"freeScroll": true, "groupCells": true, "groupCells": 1{% if web_limit > 6 %} , "wrapAround": true {% endif %}}'>
+  {% for product in product.metafields.custom.randomproducts.value limit: web_limit %}
+    
+          <div class="carousel-cell">
+              <a class="Xddriki" href="{{ product.url | within: collection }}">
+                  <img class="img-explore" style="height: 250px; width: 300px;" src="{{ product.featured_image | img_url: 'master'}}">
+                  <h4 class="wide_h4s">{{ product.title }}</h4>
+                  <p class="wide_ps">{{ product.price | money }}</p>
+                  <form action="/cart/add" method="post" class="product-form" id="add-to-cart-form">
+                    <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                    <button type="submit" class="btn" id="add-to-cart-btn">Add to Cart</button>
+                </form>
+              </a>
           </div>
-  {% else %}
-          <div class="products-carousel js-flickity wide-visible-only" data-flickity='{"freeScroll": true, "groupCells": true, "groupCells": 1,{% if web_limit > 4 %} "wrapAround": true}{% endif %}'>
-          {% for product in product.metafields.custom.randomproducts.value limit: web_limit %}
-            
-                  <div class="carousel-cell">
-                      <a class="Xddriki" href="{{ product.url | within: collection }}">
-                          <img class="img-explore" style="height: 250px; width: 300px;" src="{{ product.featured_image | img_url: 'master'}}">
-                          <h4 class="wide_h4s">{{ product.title }}</h4>
-                          <p class="wide_ps">{{ product.price | money }}</p>
-                          <form action="/cart/add" method="post" class="product-form" id="add-to-cart-form">
-                            <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-                            <button type="submit" class="btn" id="add-to-cart-btn">Add to Cart</button>
-                        </form>
-                      </a>
-                  </div>
-          {% endfor %}
-        </div>
-{% endif %}
+  {% endfor %}
+</div>
 <div class="mobile-visible-only">
   {% for product in product.metafields.custom.randomproducts.value limit: mobile_limit %}
     
@@ -122,7 +102,8 @@
   }
 
   #shopify-section-{{ section.id }} .flickity-slider{
-    left: 12%!important;
+    {% if web_limit > 6 %}left: 0%!important;{% endif %}
+    {% if web_limit < 7 %}left: -35%!important;{% endif %}
   }
   .products-carousel .flickity-prev-next-button{
     background: transparent!important;
