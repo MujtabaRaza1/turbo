@@ -63,7 +63,7 @@
       "type": "custom-meta-section",
       "settings": {
         "section_title": "More Alike Product",
-        "web_products_limit": 16,
+        "web_products_limit": 2,
         "mobile_products_limit": 4
       }
     },
