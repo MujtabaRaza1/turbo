@@ -89,7 +89,7 @@
     background: #03a196;
   }
   #shopify-section-{{ section.id }} .img-explore{
-    height: 32vh!important;
+    height: 100%!important;
     width: 100%!important;
   }
 
@@ -102,8 +102,9 @@
   }
 
   #shopify-section-{{ section.id }} .flickity-slider{
+    {% if web_limit == 2 %}left: -27%!important;{% endif %}
     {% if web_limit > 6 %}left: 0%!important;{% endif %}
-    {% if web_limit < 7 %}left: -35%!important;{% endif %}
+    {% if web_limit < 7 and web_limit != 2 %}left: -35%!important;{% endif %}
   }
   .products-carousel .flickity-prev-next-button{
     background: transparent!important;
@@ -129,9 +130,7 @@
   width: 95%;
   margin: 0 auto;
 }
-.btn{
-  
-}
+
 
 .mobile-visible-only{
   display: grid;
@@ -151,6 +150,11 @@
     }
     .wide-visible-only{
       display: flex;
+    }
+  }
+  @media (min-width: 801px) and (max-width:1001px){
+    #shopify-section-{{ section.id }} .wide_h4s{
+      font-size: 15px;
     }
   }
   @media (max-width: 800px){
@@ -180,7 +184,7 @@
         "type": "range",
         "id": "web_products_limit",
         "label": "Limit web products",
-        "min": 4,
+        "min": 2,
         "max": 50,
         "step": 1,
         "default": 10
