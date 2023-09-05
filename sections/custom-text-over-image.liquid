@@ -1,3 +1,20 @@
+<div class="new-custom-section">
+  <div class="bg-image">
+    {%
+      render 'image-element',
+      image: section.settings.image_selector,
+      alt: section.settings.image_selector.alt,
+      stretch_width: true,
+      additional_classes: mobile_crop
+    %}
+
+
+    <div class="text-container">
+    
+    </div>
+  </div>
+</div>
+
 {% schema %}
   {
     "name": "Custom Text Over Image",

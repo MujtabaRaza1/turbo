@@ -390,13 +390,7 @@
                   {% endif %}
                 </div>
               {% endif %}
-            {% when 'share' %}
-              <div class="meta">
-                {%
-                  render 'social-buttons',
-                  context: 'product'
-                %}
-              </div>
+            
             {% when 'collapsible-tab' %}
               {% if block.settings.collapsible_tab_heading != blank %}
                 <details class="collapsible-tab">
