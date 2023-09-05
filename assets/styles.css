@@ -13706,7 +13706,7 @@ img[data-flickity-lazyload] {
   line-height: 16px;
   white-space: nowrap;
   z-index: 3;
-  positon: relative;
+  position: relative;
 }
 
 .lazyframe[data-vendor=vine] .lazyframe__title:after {
@@ -14293,7 +14293,7 @@ h2 {
   font-family: "turbo";
   font-style: normal;
   font-weight: normal;
-  speak: none;
+ speak-as: none;
   display: inline-block;
   text-decoration: inherit;
   width: 1em;
