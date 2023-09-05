@@ -2,6 +2,11 @@
   <div class="bg-image">
     <div class="text-container">
       <h1 class="text_over_Image">{{ section.settings.Content_text }}</h1>
+      {%  render 'banner-buttons',
+        button_text: section.settings.button,
+        button_style: section.settings.button1_style,
+        button_link: section.settings.button1_link
+       %}
       </div>
     {%
       render 'image-element',
@@ -101,6 +106,44 @@
         "max": 95,
         "default": 50
       }
+      {
+        "type": "text",
+        "id": "button",
+        "label": "First button label"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "First button link"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "First button color",
+      "options": [
+        {
+          "value": "global-button--primary",
+          "label": "Primary button"
+        },
+        {
+          "value": "global-button--banner",
+          "label": "Banner button (outline)"
+        },
+        {
+          "value": "global-button--banner-highlighted",
+          "label": "Banner button (solid)"
+        },
+        {
+          "value": "global-button--banner-text",
+          "label": "Banner text button (outline)"
+        },
+        {
+          "value": "global-button--banner-text-highlighted",
+          "label": "Banner text button (solid)"
+        }
+      ],
+      "default": "global-button--banner"
+    },
     ],
     "presets": [
       {
