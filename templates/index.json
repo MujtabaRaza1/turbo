@@ -132,7 +132,8 @@
       "type": "custom-text-over-image",
       "settings": {
         "Section-title": "",
-        "image_selector": "shopify:\/\/shop_images\/ales-nesetril-Im7lZjxeLhg-unsplash.jpg"
+        "image_selector": "shopify:\/\/shop_images\/ales-nesetril-Im7lZjxeLhg-unsplash.jpg",
+        "Content_text": "Random Content"
       }
     },
     "slideshow-1": {
