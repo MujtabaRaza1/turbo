@@ -90,7 +90,6 @@
       "settings": {
         "wide_display": true,
         "image": "shopify:\/\/shop_images\/PumpinSpiceLatte_HP_Banner_2_Desktop_1600x_0c89a8e5-b1cf-40e6-a2a6-afc0ba6493e3.jpg",
-        "image_2": "shopify:\/\/shop_images\/PumpinSpiceLatte_HP_Banner_2_Mobile_1600x_77e159f1-8550-425e-8390-555928575c56.jpg",
         "double_picture_height": 45,
         "pretext": "",
         "title": "Forbidden Fig",
@@ -104,6 +103,7 @@
         "text_position": "center",
         "text_align": "center",
         "caption_content_background": "original",
+        "mobile_image": "shopify:\/\/shop_images\/PumpinSpiceLatte_HP_Banner_2_Mobile_1600x_77e159f1-8550-425e-8390-555928575c56.jpg",
         "mobile_image_crop": "none",
         "mobile_text_below_image": true,
         "mobile_text_color": "",
