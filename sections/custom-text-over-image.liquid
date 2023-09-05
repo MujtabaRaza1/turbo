@@ -1,20 +1,17 @@
 <div class="new-custom-section">
   <div class="bg-image">
-    <div class="text-container">
+    <div class="text-container" style= "background-image: url(../assets/PumpinSpiceLatte_HP_Banner_2_Desktop_1600x.jpg);">
+
+    
+      
       <h1 class="text_over_Image">{{ section.settings.Content_text }}</h1>
       {%  render 'banner-buttons',
-        button_text: section.settings.button,
-        button_style: section.settings.button_style,
-        button_link: section.settings.button_link
+        button1_text: section.settings.button1,
+        button1_style: section.settings.button_style1,
+        button_link1: section.settings.button_link1
        %}
       </div>
-    {%
-      render 'image-element',
-      image: section.settings.image_selector,
-      alt: section.settings.image_selector.alt,
-      stretch_width: true,
-      additional_classes: mobile_crop
-    %}
+    
 
   </div>
 </div>
@@ -25,6 +22,7 @@
     justify-content: center;
     align-items: center;
     position: relative;
+    background-image: url(./assets/PumpinSpiceLatte_HP_Banner_2_Desktop_1600x.jpg);
   }
   #shopify-section-{{ section.id }} .image-element__wrap{
     height: 50vw;
@@ -108,17 +106,17 @@
       },
       {
         "type": "text",
-        "id": "button",
+        "id": "button1",
         "label": "Button label"
       },
       {
         "type": "url",
-        "id": "button_link",
+        "id": "button1_link",
         "label": "First button link"
       },
       {
         "type": "select",
-        "id": "button_style",
+        "id": "button1_style",
         "label": "Button color",
         "options": [
           {
