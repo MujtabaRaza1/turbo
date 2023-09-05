@@ -72,19 +72,6 @@
         "custom_css": ""
       }
     },
-    "11ea749e-b3d0-4335-8e8e-abdbc6d8ed27": {
-      "type": "custom-text-over-image",
-      "settings": {
-        "Section-title": "",
-        "image_selector": "shopify:\/\/shop_images\/ales-nesetril-Im7lZjxeLhg-unsplash.jpg",
-        "Content_text": "Random Content",
-        "text_alignment": 30,
-        "text_alignment2": 95,
-        "button1": "",
-        "button1_link": "",
-        "button1_style": "global-button--banner"
-      }
-    },
     "e4c580c3-aff8-4fb0-b9c4-dac057441cbf": {
       "type": "new-banner-with-text",
       "settings": {
@@ -181,7 +168,6 @@
     "0133126b-fb3c-473b-9ffe-27c0ccd7da0b",
     "featured-text-1",
     "featured-collection-1",
-    "11ea749e-b3d0-4335-8e8e-abdbc6d8ed27",
     "e4c580c3-aff8-4fb0-b9c4-dac057441cbf",
     "featured-product-2",
     "newsletter-1"
