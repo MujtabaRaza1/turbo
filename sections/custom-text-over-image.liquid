@@ -38,10 +38,20 @@
     justify-content: center;
     width: 100%;
     left: {{ section.settings.text_alignment }}%;
+    top: {{ section.settings.text_alignment2 }}%;
   }
-@media (max-width: 550px){
+  #shopify-section-{{ section.id }} img{
+    height: 100%;
+  }
+
+@media (min-width: 490px) and (max-width: 550px){
   #shopify-section-{{ section.id }} .text_over_Image{
     font-size: 16px;
+  }
+}
+@media (max-width: 489px){
+  #shopify-section-{{ section.id }} .text_over_Image{
+    font-size: 12px;
   }
 }
 @media (min-width: 551px) and (max-width: 800px){
@@ -78,10 +88,18 @@
       {
         "type": "range",
         "id": "text_alignment",
-        "label": "Text Position",
+        "label": "Text Position Horizontal",
         "min": -30,
         "max": 30,
         "default": 0
+      },
+      {
+        "type": "range",
+        "id": "text_alignment2",
+        "label": "Text Position Vertical",
+        "min": 5,
+        "max": 95,
+        "default": 50
       }
     ],
     "presets": [
