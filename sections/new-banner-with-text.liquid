@@ -50,33 +50,16 @@
         column
         banner
       "
-      style="height: {{ section.settings.double_picture_height }}vw"
+      {% comment %} style="height: {{ section.settings.double_picture_height }}vw" {% endcomment %}
     >
       {% if section.settings.mobile_image %}
-        <div class="is-hidden-mobile-only">
+        <div class="is-hidden-mobile-only" style="height:{{ section.settings.web_section_height }}vh;">
       {% endif %}
 
       {% if section.settings.image %}
-        <div class="wide-visible-only">
-          {%
-            render 'image-element',
-            image: section.settings.image,
-            alt: section.settings.image.alt,
-            stretch_width: true,
-            additional_classes: mobile_crop
-          %}
-        </div>
-
-
-        <div class=mobile-visble-only>
-          {%
-            render 'image-element',
-            image: section.settings.image_2,
-            alt: section.settings.image.alt,
-            stretch_width: true,
-            additional_classes: mobile_crop
-          %}
-        </div>
+       <img src="{{ section.settings.image | image_url }}"> 
+        
+        
         
 
         {% if section.settings.caption_content_background == 'darken_bg' %}
@@ -88,14 +71,8 @@
 
       {% if section.settings.mobile_image %}
         </div>
-        <div class="is-hidden-desktop-only">
-          {%
-            render 'image-element',
-            image: section.settings.mobile_image,
-            alt: section.settings.mobile_image.alt,
-            stretch_width: true,
-            additional_classes: mobile_crop
-          %}
+        <div class="is-hidden-desktop-only" style="height:{{ section.settings.mobile_section_height }}vh;">
+          <img src="{{ section.settings.mobile_image | image_url }}"> 
 
           {% if section.settings.caption_content_background == 'darken_bg' %}
             <div class="darken-bg"></div>
@@ -165,7 +142,12 @@
 
 <style>
   #shopify-section-{{ section.id }} .one-whole img{
-    opacity: 0.7;
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+  }
+  #shopify-section-{{ section.id }} .has-no-side-gutter .one-whole{
+    display: block!important;
   }
   #shopify-section-{{ section.id }} .img[data-sizes=auto].lazyloaded{
     height: 100%;
@@ -173,16 +155,17 @@
     object-fit: cover;
   }
   #shopify-section-{{ section.id }} .wide-visible-only{
-    display: block;
+    display: block!important;
+    height: max-content!important;
   }
   #shopify-section-{{ section.id }} .mobile-visible-only{
-    display: none;
+    display: none!important;
   }
 
 
-  @media only screen and (max-width: 800px){
+  @media (max-width: 800px){
     #shopify-section-{{ section.id }} .has-no-side-gutter .one-whole {
-      height: 60vw!important;
+      height: max-content!important;
       margin-top: 7%;
     }
     #shopify-section-{{ section.id }} .wide-visible-only{
@@ -190,6 +173,20 @@
     }
     #shopify-section-{{ section.id }} .mobile-visible-only{
       display: block;
+    }
+    #shopify-section-{{ section.id }} .caption--below-true .headline {
+      color: white;
+    }
+    #shopify-section-{{ section.id }} .caption--below-true .subtitle {
+      color: white;
+    }
+    #shopify-section-{{ section.id }} .caption a {
+      color: white;
+      border-color: white;
+      padding: 15px 40px;
+    }
+    #shopify-section-{{ section.id }} p {
+      text-shadow: 1px 1.5px black;
     }
 
   }
@@ -235,18 +232,21 @@
       "info": "1800 x 1000px recommended"
     },
     {
-      "type": "image_picker",
-      "id": "image_2",
-      "label": "Mobile Image",
-      "info": "1800 x 1000px recommended"
+      "type": "range",
+      "id": "web_section_height",
+      "label": "Web Section Height",
+      "min": 70,
+      "max": 85,
+      "default": 75
+
     },
     {
       "type": "range",
-      "id": "double_picture_height",
-      "label": "Section Height",
-      "min": 33,
-      "max": 45,
-      "default": 40
+      "id": "mobile_section_height",
+      "label": "Mobile Section Height",
+      "min": 50,
+      "max": 70,
+      "default": 50
 
     },
     {
