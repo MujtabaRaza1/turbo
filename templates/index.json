@@ -85,11 +85,11 @@
         "button_style": "global-button--banner"
       }
     },
-    "image-with-text-overlay-2": {
-      "type": "image-with-text-overlay",
+    "e4c580c3-aff8-4fb0-b9c4-dac057441cbf": {
+      "type": "new-banner-with-text",
       "settings": {
         "wide_display": true,
-        "double_picture_height": 33,
+        "double_picture_height": 40,
         "pretext": "",
         "title": "Your Headline",
         "subtitle": "",
@@ -180,7 +180,7 @@
     "featured-text-1",
     "featured-collection-1",
     "11ea749e-b3d0-4335-8e8e-abdbc6d8ed27",
-    "image-with-text-overlay-2",
+    "e4c580c3-aff8-4fb0-b9c4-dac057441cbf",
     "featured-product-2",
     "newsletter-1"
   ]
