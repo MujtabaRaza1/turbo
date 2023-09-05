@@ -1,5 +1,8 @@
 <div class="new-custom-section">
   <div class="bg-image">
+    <div class="text-container">
+      <h1 class="text_over_Image">{{ section.settings.Content_text }}</h1>
+      </div>
     {%
       render 'image-element',
       image: section.settings.image_selector,
@@ -8,13 +11,46 @@
       additional_classes: mobile_crop
     %}
 
-
-    <div class="text-container">
-    
-    </div>
   </div>
 </div>
+<style>
+  #shopify-section-{{ section.id }} .bg-image{
+    height: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  #shopify-section-{{ section.id }} .image-element__wrap{
+    height: 50vw;
+  }
+  #shopify-section-{{ section.id }} .text_over_Image{
+    color: white;
+    width: max-content;
+    z-index: 999;
+    position: absolute;
+  }
+  #shopify-section-{{ section.id }} .text-container{
+    position: absolute;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    left: {{ section.settings.text_alignment }}%;
+  }
 
+@media (min-width: 550px) and (max-width: 800px){
+  #shopify-section-{{ section.id }} .text_over_Image{
+    font-size: 20px;
+  }
+}
+@media (min-width: 801px) and (max-width: 950px){
+  #shopify-section-{{ section.id }} .text_over_Image{
+    font-size: 25px;
+  }
+}
+</style>
 {% schema %}
   {
     "name": "Custom Text Over Image",
@@ -34,6 +70,14 @@
         "type": "text",
         "id": "Content_text",
         "label": "Content Text"
+      },
+      {
+        "type": "range",
+        "id": "text_alignment",
+        "label": "Text Position",
+        "min": -40,
+        "max": 30,
+        "default": 0
       }
     ],
     "presets": [
