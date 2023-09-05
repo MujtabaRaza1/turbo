@@ -1,12 +1,36 @@
 {% schema %}
   {
-    "name": "Section name",
-    "settings": []
+    "name": "Custom Text Over Image",
+    "class": "custom-text-over-image",
+    "settings": [
+      {
+        "type": "text",
+        "id": "Section-title",
+        "label": "Heading"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_selector",
+        "label": "Select BG Image"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Custom Text Over Image",
+        "category": "Collection"
+      }
+    ],
+    "templates": [
+      "404",
+      "article",
+      "blog",
+      "cart",
+      "collection",
+      "list-collections",
+      "index",
+      "page",
+      "product",
+      "search"
+    ]
   }
 {% endschema %}
-
-{% stylesheet %}
-{% endstylesheet %}
-
-{% javascript %}
-{% endjavascript %}
