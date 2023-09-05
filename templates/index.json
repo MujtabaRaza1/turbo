@@ -29,6 +29,9 @@
     "792d3fbc-c72f-4b4f-855d-3fa744dd37b1": {
       "type": "custom-meta-section",
       "settings": {
+        "section_title": "Related Products",
+        "web_products_limit": 10,
+        "mobile_products_limit": 4
       }
     },
     "0133126b-fb3c-473b-9ffe-27c0ccd7da0b": {
@@ -181,6 +184,30 @@
         "custom_css": ""
       }
     },
+    "image-with-text-overlay-2": {
+      "type": "image-with-text-overlay",
+      "settings": {
+        "wide_display": true,
+        "double_picture_height": 33,
+        "pretext": "",
+        "title": "Your Headline",
+        "subtitle": "",
+        "button1": "",
+        "button1_link": "",
+        "button1_style": "global-button--banner",
+        "button2": "",
+        "button2_link": "",
+        "button2_style": "global-button--banner",
+        "text_position": "center",
+        "text_align": "center",
+        "caption_content_background": "original",
+        "mobile_image_crop": "none",
+        "mobile_text_below_image": true,
+        "mobile_text_color": "",
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
     "image-text-1": {
       "type": "image-text",
       "blocks": {
@@ -275,30 +302,6 @@
         "product_thumbnails": true,
         "cta": true,
         "bottom_bar_image_style": "natural",
-        "css_class": "",
-        "custom_css": ""
-      }
-    },
-    "image-with-text-overlay-2": {
-      "type": "image-with-text-overlay",
-      "settings": {
-        "wide_display": true,
-        "double_picture_height": 33,
-        "pretext": "",
-        "title": "Your Headline",
-        "subtitle": "",
-        "button1": "",
-        "button1_link": "",
-        "button1_style": "global-button--banner",
-        "button2": "",
-        "button2_link": "",
-        "button2_style": "global-button--banner",
-        "text_position": "center",
-        "text_align": "center",
-        "caption_content_background": "original",
-        "mobile_image_crop": "none",
-        "mobile_text_below_image": true,
-        "mobile_text_color": "",
         "css_class": "",
         "custom_css": ""
       }
@@ -561,9 +564,9 @@
     "featured-promotions-1",
     "featured-collection-1",
     "slideshow-1",
+    "image-with-text-overlay-2",
     "image-text-1",
     "shoppable-image-1",
-    "image-with-text-overlay-2",
     "collection-list-1",
     "testimonials-1",
     "featured-product-1",
