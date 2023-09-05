@@ -128,6 +128,12 @@
         "custom_css": ""
       }
     },
+    "11ea749e-b3d0-4335-8e8e-abdbc6d8ed27": {
+      "type": "custom-text-over-image",
+      "settings": {
+        "Section-title": ""
+      }
+    },
     "slideshow-1": {
       "type": "slideshow",
       "blocks": {
@@ -563,6 +569,7 @@
     "featured-text-1",
     "featured-promotions-1",
     "featured-collection-1",
+    "11ea749e-b3d0-4335-8e8e-abdbc6d8ed27",
     "slideshow-1",
     "image-with-text-overlay-2",
     "image-text-1",
