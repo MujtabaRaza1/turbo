@@ -39,8 +39,12 @@
     width: 100%;
     left: {{ section.settings.text_alignment }}%;
   }
-
-@media (min-width: 550px) and (max-width: 800px){
+@media (max-width: 550px){
+  #shopify-section-{{ section.id }} .text_over_Image{
+    font-size: 16px;
+  }
+}
+@media (min-width: 551px) and (max-width: 800px){
   #shopify-section-{{ section.id }} .text_over_Image{
     font-size: 20px;
   }
@@ -75,7 +79,7 @@
         "type": "range",
         "id": "text_alignment",
         "label": "Text Position",
-        "min": -40,
+        "min": -30,
         "max": 30,
         "default": 0
       }
