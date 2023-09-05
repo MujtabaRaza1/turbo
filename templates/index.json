@@ -131,7 +131,8 @@
     "11ea749e-b3d0-4335-8e8e-abdbc6d8ed27": {
       "type": "custom-text-over-image",
       "settings": {
-        "Section-title": ""
+        "Section-title": "",
+        "image_selector": "shopify:\/\/shop_images\/ales-nesetril-Im7lZjxeLhg-unsplash.jpg"
       }
     },
     "slideshow-1": {
