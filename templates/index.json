@@ -80,20 +80,21 @@
         "Content_text": "Random Content",
         "text_alignment": 30,
         "text_alignment2": 95,
-        "button": "BUY NOW",
-        "button_link": "shopify:\/\/products\/red-sports-tee",
-        "button_style": "global-button--banner"
+        "button1": "",
+        "button1_link": "",
+        "button1_style": "global-button--banner"
       }
     },
     "e4c580c3-aff8-4fb0-b9c4-dac057441cbf": {
       "type": "new-banner-with-text",
       "settings": {
         "wide_display": true,
-        "double_picture_height": 40,
+        "image": "shopify:\/\/shop_images\/PumpinSpiceLatte_HP_Banner_2_Desktop_1600x_0c89a8e5-b1cf-40e6-a2a6-afc0ba6493e3.jpg",
+        "double_picture_height": 45,
         "pretext": "",
-        "title": "Your Headline",
-        "subtitle": "",
-        "button1": "",
+        "title": "Forbidden Fig",
+        "subtitle": "<p>Fragrance so alluring, it earns its name.<\/p>",
+        "button1": "Shop Now",
         "button1_link": "",
         "button1_style": "global-button--banner",
         "button2": "",
