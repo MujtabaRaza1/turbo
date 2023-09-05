@@ -78,8 +78,8 @@
         "Section-title": "",
         "image_selector": "shopify:\/\/shop_images\/ales-nesetril-Im7lZjxeLhg-unsplash.jpg",
         "Content_text": "Random Content",
-        "text_alignment": 0,
-        "text_alignment2": 50,
+        "text_alignment": 30,
+        "text_alignment2": 95,
         "button": "BUY NOW",
         "button_link": "shopify:\/\/products\/red-sports-tee",
         "button_style": "global-button--banner"
