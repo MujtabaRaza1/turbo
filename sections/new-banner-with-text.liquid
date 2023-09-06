@@ -97,9 +97,11 @@
       {% unless section.settings.pretext == blank and section.settings.title == blank and section.settings.subtitle == blank and section.settings.button1 == blank and section.settings.button2 == blank %}
         <div
           class="
-            position-{{ section.settings.text_position }}
+            {% comment %} position-{{ section.settings.text_position }} {% endcomment %}
             caption
             js-caption
+            vertical-align
+            horizontal align
           "
         >
           <div class="caption-content align-{{ section.settings.text_align }}">
@@ -161,6 +163,13 @@
   #shopify-section-{{ section.id }} .mobile-visible-only{
     display: none!important;
   }
+  #shopify-section-{{ section.id }} .full-width--true .caption{
+    max-width: 100%;
+    padding: 0;
+  }
+
+  
+
 
 
   @media (max-width: 800px){
@@ -185,11 +194,51 @@
       border-color: white;
       padding: 15px 40px;
     }
+    #shopify-section-{{ section.id }} .caption{
+      text-align: center;
+      top: 22%;
+    }
     #shopify-section-{{ section.id }} p {
       text-shadow: 1px 1.5px black;
     }
 
   }
+  @media (min-width: 800px){
+    #shopify-section-{{ section.id }} .full-width--true .caption{
+      max-width: 100%;
+      width: 100%;
+      padding: 0;
+      top: {{ section.settings.vertical_content_alignment }}%;
+      left: {{ section.settings.horizontal_content_alignment }}%;
+    }
+  }
+  @media (min-width: 1100px) and (max-width: 1550px){
+    #shopify-section-{{ section.id }} .subtitle{
+      font-size: 15px;
+    }
+  }
+  @media (min-width: 800px) and (max-width: 1099px){
+    #shopify-section-{{ section.id }} .headline{
+      font-size: 46px;
+    }
+  }
+  @media (min-width: 961px) and (max-width: 1230px){
+    #shopify-section-{{ section.id }} .caption .headline{
+      font-size: 40.666667px;
+    }
+    #shopify-section-{{ section.id }} .caption .subtitle{
+      font-size: 10px;
+    }
+  }
+  @media (min-width: 800px) and (max-width: 960px){
+    #shopify-section-{{ section.id }} .caption .headline{
+      font-size: 35.666667px;
+    }
+    #shopify-section-{{ section.id }} .caption .subtitle{
+      font-size: 8.5px;
+    }
+  }
+
 
 </style>
 
@@ -345,42 +394,20 @@
       "content": "Content layout"
     },
     {
-      "type": "select",
-      "id": "text_position",
-      "label": "Text position",
-      "options": [
-        {
-          "value": "left",
-          "label": "Left"
-        },
-        {
-          "value": "center",
-          "label": "Center"
-        },
-        {
-          "value": "right",
-          "label": "Right"
-        }
-      ]
+      "type": "range",
+      "id": "vertical_content_alignment",
+      "label": "Vertical Content Alignment",
+      "min": 0,
+      "max": 85,
+      "default": 50
     },
     {
-      "type": "select",
-      "id": "text_align",
-      "label": "Text alignment",
-      "options": [
-        {
-          "value": "left",
-          "label": "Left"
-        },
-        {
-          "value": "center",
-          "label": "Center"
-        },
-        {
-          "value": "right",
-          "label": "Right"
-        }
-      ]
+      "type": "range",
+      "id": "horizontal_content_alignment",
+      "label": "Horizontal Content Alignment",
+      "min": 0,
+      "max": 70,
+      "default": 40
     },
     {
       "type": "header",
@@ -481,9 +508,7 @@
       "category": "Image",
       "settings": {
         "image": "",
-        "title": "Your Headline",
-        "text_position": "center",
-        "text_align": "center"
+        "title": "Your Headline"
       }
     }
   ]
