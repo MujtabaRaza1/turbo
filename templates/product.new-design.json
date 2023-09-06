@@ -7,7 +7,7 @@
       }
     },
     "main": {
-      "type": "product-template",
+      "type": "product-new-design-template",
       "blocks": {
         "title": {
           "type": "title",
