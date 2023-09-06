@@ -88,7 +88,7 @@
         "button2": "",
         "button2_link": "",
         "button2_style": "global-button--banner",
-        "text_align": "center",
+        "text_align": "left",
         "vertical_content_alignment": 50,
         "horizontal_content_alignment": 40,
         "caption_content_background": "original",
