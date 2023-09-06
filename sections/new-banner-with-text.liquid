@@ -104,13 +104,13 @@
             horizontal align
           "
         >
-          <div class="caption-content align-{{ section.settings.text_align }}">
+          <div class="caption-content">
             {% if  section.settings.pretext != blank %}
               <div class="pretext">
                 {{  section.settings.pretext }}
               </div>
             {% endif %}
-
+            
             {% if section.settings.title != blank %}
               <h1 class="headline">
                 {{ section.settings.title | escape }}
