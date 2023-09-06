@@ -97,7 +97,7 @@
       {% unless section.settings.pretext == blank and section.settings.title == blank and section.settings.subtitle == blank and section.settings.button1 == blank and section.settings.button2 == blank %}
         <div
           class="
-            {% comment %} position-{{ section.settings.text_position }} {% endcomment %}
+            position-{{ section.settings.text_position }}
             caption
             js-caption
             vertical-align
@@ -395,6 +395,25 @@
     {
       "type": "header",
       "content": "Content layout"
+    },
+    {
+      "type": "select",
+      "id": "text_position",
+      "label": "Text position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
     },
     {
       "type": "range",
