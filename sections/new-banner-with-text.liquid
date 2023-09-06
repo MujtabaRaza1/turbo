@@ -167,9 +167,7 @@
     max-width: 100%;
     padding: 0;
   }
-  #shopify-section-{{ section.id }} .caption-content{
-    text-align: {{ section.settings.text_align }};
-  }
+  
 
   
 
@@ -221,6 +219,9 @@
       padding: 0;
       top: {{ section.settings.vertical_content_alignment }}%;
       left: {{ section.settings.horizontal_content_alignment }}%;
+    }
+    #shopify-section-{{ section.id }} .caption-content{
+      text-align: {{ section.settings.text_align }};
     }
   }
   @media (min-width: 1100px) and (max-width: 1550px){
