@@ -202,7 +202,7 @@
       top: 22%;
     }
     #shopify-section-{{ section.id }} .caption{
-      text-align: {{ section.settings.text_align }};
+      text-align: {{ section.settings.text_align_mobile }};
       top: 22%;
     }
     #shopify-section-{{ section.id }} .caption-content{
@@ -408,6 +408,25 @@
       "type": "select",
       "id": "text_align",
       "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "text_align_mobile",
+      "label": "Mobile Text alignment",
       "options": [
         {
           "value": "left",
