@@ -168,7 +168,7 @@
     padding: 0;
   }
   #shopify-section-{{ section.id }} .caption-content{
-    text-align: center;
+    text-align: {{ section.settings.text_align }};
   }
 
   
@@ -198,7 +198,7 @@
       padding: 15px 40px;
     }
     #shopify-section-{{ section.id }} .caption{
-      text-align: center;
+      text-align: {{ section.settings.text_align }};
       top: 22%;
     }
     #shopify-section-{{ section.id }} p {
