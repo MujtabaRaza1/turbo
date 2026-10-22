@@ -86,14 +86,7 @@
       <section class="section">
         <div class="container">
           <div class="one-whole column">
-            {%
-              render 'product-loop',
-              limit: section.settings.products_limit | plus: 1,
-              products: collection.products,
-              collection: collection,
-              skip_product: product,
-              products_per_row: section.settings.products_per,
-            %}
+            {% render 'product-loop', limit: section.settings.products_limit, plus: 1, products: collection.products, collection: collection, skip_product: product, products_per_row: section.settings.products_per %}
           </div>
         </div>
       </section>
@@ -223,4 +216,23 @@
   ]
 }
 
-{% endschema %}
+{% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {%
+                  render 'product-loop',
+                  limit: section.settings.products_limit | plus: 1,
+                  products: collection.products,
+                  collection: collection,
+                  skip_product: product,
+                  products_per_row: section.settings.products_per,
+                %}
+  to: "{% render 'product-loop', limit: section.settings.products_limit, plus: 1,
+    products: collection.products, collection: collection, skip_product: product,
+    products_per_row: section.settings.products_per %}"
+  position: 3452..3655
+{%- endcomment -%}
